@@ -193,6 +193,14 @@
     @apply transform-gpu rotate-y-3 scale-105 shadow-xl;
   }
 
+  .hover-3d-effect {
+    @apply transition-all duration-300 transform-gpu perspective-1000 hover:translate-z-5 hover:scale-105 hover:shadow-lg;
+  }
+
+  .float-3d {
+    @apply animate-float-3d;
+  }
+
   @media (max-width: 640px) {
     .mobile-full {
       @apply -mx-4 px-4 w-screen;
@@ -214,7 +222,7 @@
   }
   
   .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
   
   .img-hover-zoom {
@@ -274,8 +282,24 @@
     transform: rotateY(3deg);
   }
 
+  .translate-z-5 {
+    transform: translateZ(5px);
+  }
+
   .backface-hidden {
     backface-visibility: hidden;
+  }
+
+  .hover-rotate-y {
+    @apply transition-transform duration-300 hover:rotate-y-3;
+  }
+
+  .hover-rotate-x {
+    @apply transition-transform duration-300 hover:rotate-x-3;
+  }
+
+  .rotate-x-3 {
+    transform: rotateX(3deg);
   }
 
   .scroll-pt-header {

@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import AnimatedHeading from '@/components/ui/AnimatedHeading';
 import SmoothImage from '@/components/ui/SmoothImage';
+import VideoBackground from '@/components/ui/VideoBackground';
 import Section from '@/components/ui/Section';
 import { cn } from '@/lib/utils';
 
 // Placeholder images for development
 const heroImage = "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop";
+// Replace this URL with your actual video URL
+const heroVideo = "https://assets.mixkit.co/videos/preview/mixkit-elegant-hotel-room-during-the-day-1457-large.mp4";
 const roomImage1 = "https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=2070&auto=format&fit=crop";
 const roomImage2 = "https://images.unsplash.com/photo-1618773928121-c32242e63f39?q=80&w=2070&auto=format&fit=crop";
 const areaImage = "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?q=80&w=2049&auto=format&fit=crop";
@@ -53,16 +56,14 @@ const Index = () => {
 
   return (
     <div className="animate-fade-in">
-      {/* Hero Section */}
+      {/* Hero Section with Video Background */}
       <section className="relative h-screen">
         <div className="absolute inset-0">
-          <SmoothImage
-            src={heroImage}
-            alt="Tranquil Haven Hotel"
-            className="w-full h-full"
-            objectFit="cover"
+          <VideoBackground 
+            src={heroVideo}
+            fallbackImage={heroImage}
+            overlayClass="bg-gradient-to-b from-black/60 via-black/40 to-black/70"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
         </div>
         
         <div className="relative h-full flex items-center hotel-container">
@@ -72,9 +73,10 @@ const Index = () => {
             </span>
             <AnimatedHeading
               level={1}
-              className="text-4xl sm:text-5xl md:text-6xl font-bold text-shadow"
-              animation="fade-in-left"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-shadow-lg"
+              animation="3d-flip"
               delay={400}
+              duration={1000}
             >
               A Sanctuary of Elegance and Comfort
             </AnimatedHeading>
@@ -82,11 +84,11 @@ const Index = () => {
               Experience unparalleled luxury in our meticulously designed spaces,
               where every detail is crafted for your ultimate relaxation.
             </p>
-            <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-left" style={{ animationDelay: "800ms", animationFillMode: "forwards" }}>
-              <Link to="/packages" className="btn-primary">
+            <div className="flex flex-wrap gap-4 opacity-0 animate-fade-in-up" style={{ animationDelay: "800ms", animationFillMode: "forwards" }}>
+              <Link to="/packages" className="btn-primary hover-3d-effect">
                 Book Your Stay
               </Link>
-              <Link to="/about" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-hotel-navy">
+              <Link to="/about" className="btn-secondary bg-transparent border-white text-white hover:bg-white hover:text-hotel-navy hover-3d-effect">
                 Discover More
               </Link>
             </div>
@@ -96,15 +98,15 @@ const Index = () => {
         <div className="absolute bottom-12 left-0 right-0 animate-fade-in" style={{ animationDelay: "1200ms" }}>
           <div className="hotel-container">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="glass-card bg-white/30 backdrop-blur-lg text-white">
+              <div className="glass-card bg-white/30 backdrop-blur-lg text-white hover-3d-effect transform-gpu perspective-1000 hover:scale-105 hover:rotate-y-3 transition-all duration-500">
                 <h3 className="font-serif text-xl font-semibold mb-2">Premium Rooms</h3>
                 <p className="text-white/80">Spacious and elegantly furnished rooms with scenic views.</p>
               </div>
-              <div className="glass-card bg-white/30 backdrop-blur-lg text-white">
+              <div className="glass-card bg-white/30 backdrop-blur-lg text-white hover-3d-effect transform-gpu perspective-1000 hover:scale-105 hover:rotate-y-3 transition-all duration-500">
                 <h3 className="font-serif text-xl font-semibold mb-2">Fine Dining</h3>
                 <p className="text-white/80">Exquisite culinary experiences crafted by renowned chefs.</p>
               </div>
-              <div className="glass-card bg-white/30 backdrop-blur-lg text-white">
+              <div className="glass-card bg-white/30 backdrop-blur-lg text-white hover-3d-effect transform-gpu perspective-1000 hover:scale-105 hover:rotate-y-3 transition-all duration-500">
                 <h3 className="font-serif text-xl font-semibold mb-2">Wellness Spa</h3>
                 <p className="text-white/80">Rejuvenating treatments in our state-of-the-art spa facilities.</p>
               </div>

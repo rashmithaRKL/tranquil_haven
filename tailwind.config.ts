@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -169,6 +168,49 @@ export default {
 					'100%': {
 						transform: 'translateY(0)'
 					}
+				},
+				'float-3d': {
+					'0%, 100%': { 
+						transform: 'translateY(0) translateZ(0) rotateX(0deg)' 
+					},
+					'25%': { 
+						transform: 'translateY(-5px) translateZ(5px) rotateX(2deg)'
+					},
+					'75%': {
+						transform: 'translateY(5px) translateZ(-5px) rotateX(-2deg)'
+					}
+				},
+				'rotate-3d': {
+					'0%': {
+						transform: 'rotateY(0deg) rotateX(0deg) scale(1)'
+					},
+					'50%': {
+						transform: 'rotateY(10deg) rotateX(5deg) scale(1.05)'
+					},
+					'100%': {
+						transform: 'rotateY(0deg) rotateX(0deg) scale(1)'
+					}
+				},
+				'fade-in-up': {
+					'0%': { 
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': { 
+						opacity: '1',
+						transform: 'translateY(0)' 
+					},
+				},
+				'tilt-shine': {
+					'0%': {
+						boxShadow: '0 0 0 0 rgba(255, 255, 255, 0)'
+					},
+					'50%': {
+						boxShadow: '0 0 20px 10px rgba(255, 255, 255, 0.2)'
+					},
+					'100%': {
+						boxShadow: '0 0 0 0 rgba(255, 255, 255, 0)'
+					}
 				}
 			},
 			animation: {
@@ -181,7 +223,11 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'rotate-in': 'rotate-in 0.7s ease-out',
 				'3d-flip': '3d-flip 0.8s ease-out',
-				'bounce-in': 'bounce-in 0.8s ease-out'
+				'bounce-in': 'bounce-in 0.8s ease-out',
+				'float-3d': 'float-3d 6s ease-in-out infinite',
+				'rotate-3d': 'rotate-3d 8s ease-in-out infinite',
+				'fade-in-up': 'fade-in-up 0.7s ease-out',
+				'tilt-shine': 'tilt-shine 5s ease-in-out infinite'
 			}
 		}
 	},
