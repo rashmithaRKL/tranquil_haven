@@ -26,10 +26,9 @@ const AnimatedHeading = ({
   threshold = 0.1,
   once = true
 }: AnimatedHeadingProps) => {
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
   const isMobile = useIsMobile();
   const [isVisible, setIsVisible] = useState(false);
-  const headingRef = useRef<HTMLHeadingElement>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
   
   useEffect(() => {
     // Small delay to ensure component is mounted before animation
@@ -86,24 +85,42 @@ const AnimatedHeading = ({
     ? 'animate-fade-in' 
     : getAnimationClass(effectiveAnimation);
 
-  return (
-    <Tag 
-      ref={headingRef}
-      className={cn(
+  // Properly render the heading element with the correct level
+  const renderHeading = () => {
+    const headingProps = {
+      className: cn(
         animation !== 'none' && effectiveAnimationClass,
         !isVisible && 'opacity-0',
         className
-      )}
-      style={{ 
+      ),
+      style: { 
         animationDelay: `${delay}ms`,
         animationFillMode: 'forwards',
         animationDuration: `${duration}ms`,
         perspective: animation === '3d-flip' ? '1000px' : undefined
-      }}
-    >
-      {children}
-    </Tag>
-  );
+      },
+      ref: headingRef
+    };
+
+    switch(level) {
+      case 1:
+        return <h1 {...headingProps}>{children}</h1>;
+      case 2:
+        return <h2 {...headingProps}>{children}</h2>;
+      case 3:
+        return <h3 {...headingProps}>{children}</h3>;
+      case 4:
+        return <h4 {...headingProps}>{children}</h4>;
+      case 5:
+        return <h5 {...headingProps}>{children}</h5>;
+      case 6:
+        return <h6 {...headingProps}>{children}</h6>;
+      default:
+        return <h2 {...headingProps}>{children}</h2>;
+    }
+  };
+
+  return renderHeading();
 };
 
 export default AnimatedHeading;
