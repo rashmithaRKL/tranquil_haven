@@ -93,6 +93,7 @@
 
   body {
     @apply bg-hotel-cream text-foreground font-sans;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -101,6 +102,31 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Improve touch experience on mobile */
+  @media (hover: none) {
+    a, button {
+      @apply transition-none;
+    }
+  }
+  
+  /* Optimize font sizes for different screen sizes */
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
+  }
+  
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl;
+  }
+  
+  h3 {
+    @apply text-xl sm:text-2xl md:text-3xl;
+  }
+  
+  p {
+    @apply text-base sm:text-lg;
   }
 }
 
@@ -110,19 +136,57 @@
   }
 
   .section-padding {
-    @apply py-16 sm:py-24;
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-hotel-navy text-white hover:bg-opacity-90 rounded-md transition-all duration-300 ease-in-out;
+    @apply inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium bg-hotel-navy text-white hover:bg-opacity-90 active:bg-opacity-80 rounded-md transition-all duration-300 ease-in-out shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-hotel-navy focus:ring-opacity-50;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-base font-medium bg-transparent border border-hotel-navy text-hotel-navy hover:bg-hotel-navy hover:text-white rounded-md transition-all duration-300 ease-in-out;
+    @apply inline-flex items-center justify-center px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium bg-transparent border border-hotel-navy text-hotel-navy hover:bg-hotel-navy hover:text-white active:bg-opacity-90 rounded-md transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-hotel-navy focus:ring-opacity-50;
   }
 
   .glass-card {
-    @apply bg-white bg-opacity-80 backdrop-blur-md rounded-lg p-6 shadow-lg border border-white border-opacity-30;
+    @apply bg-white bg-opacity-80 backdrop-blur-md rounded-lg p-6 shadow-lg border border-white border-opacity-30 transition-all duration-300;
+  }
+  
+  /* Enhanced card styles */
+  .feature-card {
+    @apply glass-card hover:shadow-xl hover:-translate-y-1 transition-all duration-500;
+  }
+  
+  /* Responsive grid layouts */
+  .grid-auto-fit {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  .grid-auto-fit-small {
+    @apply grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4;
+  }
+  
+  /* Custom styles for form elements */
+  .form-input {
+    @apply w-full px-4 py-2 rounded-md border border-gray-300 focus:border-hotel-navy focus:ring focus:ring-hotel-navy/20 transition-colors duration-200;
+  }
+  
+  .form-select {
+    @apply w-full px-4 py-2 rounded-md border border-gray-300 focus:border-hotel-navy focus:ring focus:ring-hotel-navy/20 transition-colors duration-200;
+  }
+  
+  .form-textarea {
+    @apply w-full px-4 py-2 rounded-md border border-gray-300 focus:border-hotel-navy focus:ring focus:ring-hotel-navy/20 transition-colors duration-200;
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 640px) {
+    .mobile-full {
+      @apply -mx-4 px-4 w-screen;
+    }
+    
+    .mobile-stack {
+      @apply flex flex-col space-y-4;
+    }
   }
 }
 
@@ -135,6 +199,10 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
   .img-hover-zoom {
     @apply overflow-hidden;
   }
@@ -145,5 +213,42 @@
   
   .img-hover-zoom:hover img {
     @apply transform scale-105;
+  }
+  
+  /* Enhanced hover effects */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+  
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-hotel-gold/10;
+  }
+  
+  /* Responsive utilities */
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Glass morphism utilities */
+  .glass-bg {
+    @apply bg-white/70 backdrop-blur-md;
+  }
+  
+  .glass-bg-dark {
+    @apply bg-hotel-navy/70 backdrop-blur-md;
+  }
+  
+  /* Animation utilities */
+  .animate-on-scroll {
+    @apply opacity-0 transition-all duration-700 ease-out;
+  }
+  
+  .animate-on-scroll.is-visible {
+    @apply opacity-100;
   }
 }
