@@ -25,31 +25,34 @@ const NotFound = () => {
           <AnimatedHeading 
             level={1} 
             className="text-7xl md:text-9xl font-bold text-hotel-navy mb-6 relative"
-            animation="scale-in"
+            animation="3d-flip"
           >
             404
           </AnimatedHeading>
           
-          <p className="text-xl md:text-2xl text-gray-700 mb-8 animate-fade-in relative" style={{ animationDelay: "300ms" }}>
-            Oops! The page you're looking for seems to have checked out early.
+          <p className="text-xl md:text-2xl text-gray-700 mb-8 relative" style={{ animationDelay: "300ms" }}>
+            <span className="animate-fade-in inline-block" style={{ animationDelay: "400ms" }}>
+              Oops! The page you're looking for seems to have checked out early.
+            </span>
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in relative" style={{ animationDelay: "500ms" }}>
-            <Link to="/" className="btn-primary inline-flex items-center w-full sm:w-auto justify-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative" style={{ animationDelay: "500ms" }}>
+            <Link to="/" className="btn-primary inline-flex items-center w-full sm:w-auto justify-center animate-fade-in" style={{ animationDelay: "600ms" }}>
               <Home className="mr-2" size={20} />
               Return to Homepage
             </Link>
             
             <button 
               onClick={() => window.history.back()} 
-              className="btn-secondary w-full sm:w-auto justify-center inline-flex items-center"
+              className="btn-secondary w-full sm:w-auto justify-center inline-flex items-center animate-fade-in"
+              style={{ animationDelay: "700ms" }}
             >
               <ArrowLeft className="mr-2" size={20} />
               Go Back
             </button>
           </div>
           
-          <div className="mt-16 pt-8 border-t border-gray-200 text-gray-600 animate-fade-in" style={{ animationDelay: "700ms" }}>
+          <div className="mt-16 pt-8 border-t border-gray-200 text-gray-600 animate-fade-in" style={{ animationDelay: "800ms" }}>
             <p>If you believe this is an error, please contact our support team.</p>
           </div>
         </div>
