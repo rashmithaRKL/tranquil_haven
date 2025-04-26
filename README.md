@@ -9,7 +9,7 @@ Every detail is crafted to convey elegance, comfort, and ultimate relaxation.
 This project is developed by Dexlanka Software Solutions — dexlanka.com.
 
 You can view the live website here: Visit Tranquil Haven
-(Replace # with your published site link)
+https://rashmitharkl.github.io/
 
 Features
 🌴 Elegant landing page showcasing resort highlights
