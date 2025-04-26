@@ -1,4 +1,4 @@
-Rranquil Haven
+Tranquil Haven
 
 About
 Tranquil Haven is a luxury resort and hotel website built using TypeScript.
