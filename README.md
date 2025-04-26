@@ -12,6 +12,7 @@ You can view the live website here: Visit Tranquil Haven
 https://rashmitharkl.github.io/tranquil_haven/
 
 Features
+
 🌴 Elegant landing page showcasing resort highlights
 
 🍽️ Fine dining experiences by top chefs
