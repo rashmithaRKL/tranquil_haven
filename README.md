@@ -1,6 +1,7 @@
-Tranquil Haven
+## Tranquil Haven
 
 About
+
 Tranquil Haven is a luxury resort and hotel website built using TypeScript.
 It is designed to provide a seamless user experience for booking premium rooms, exploring fine dining options, and accessing world-class spa services.
 
